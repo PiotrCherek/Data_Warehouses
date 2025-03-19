@@ -4,7 +4,6 @@ from datetime import datetime, timedelta
 fakePL = Faker('pl_PL')
 
 board_game_names = open('board_game_names.txt', 'r').read().split('\n')
-print(board_game_names)
 
 def random_bool():
     return random.choice([True, False])
@@ -63,3 +62,44 @@ for i in range(number_of_tournaments):
         'prize_pool': generate_price_pool(min_prize_pool, max_prize_pool),
         'entry_fee': generate_entry_fee(min_entry_fee, max_entry_fee)
     })
+
+def generate_tournament_participants(number_of_participants):
+    sample = random.sample(customers, number_of_participants)
+    return [customer['customer_code'] for customer in sample]
+
+def split_prize_pool(num_of_splits, prize_pool):
+    splits_percentages = []
+    for i in range(num_of_splits):
+        splits_percentages.append(round(random.randint(1, 10) * 0.1,1))
+    while sum(splits_percentages) > 1:
+        random_split_index = random.randint(0, num_of_splits - 1)
+        if splits_percentages[random_split_index] > 0.1:
+            splits_percentages[random_split_index] -= 0.1
+            splits_percentages[random_split_index] = round(splits_percentages[random_split_index], 1)
+    while sum(splits_percentages) < 1:
+        random_split_index = random.randint(0, num_of_splits - 1)
+        if splits_percentages[random_split_index] < 1:
+            splits_percentages[random_split_index] += 0.1
+            splits_percentages[random_split_index] = round(splits_percentages[random_split_index], 1)
+    for i in range(num_of_splits):
+        splits_percentages[i] = round(prize_pool * splits_percentages[i])
+    return sorted(splits_percentages, reverse=True)
+
+def generate_winnings_list(prize_pool):
+    num_of_winners = random.randint(3, 5)
+    return split_prize_pool(num_of_winners, prize_pool)
+
+# TOURNAMENT PARTICIPANTS
+tournament_participants = []
+for tournament in tournaments:
+    number_of_participants = random.randint(5, 100)
+    current_tournament_participants = generate_tournament_participants(number_of_participants)
+    winnings_list = generate_winnings_list(tournament['prize_pool'])
+    for i in range(number_of_participants):
+        tournament_participants.append({
+            'customer_code': current_tournament_participants[i],
+            'tournament_id': tournament['tournament_id'],
+            'place': i + 1,
+            'prize_amount': winnings_list[i] if i < len(winnings_list) else 0
+        })
+print(tournament_participants)
