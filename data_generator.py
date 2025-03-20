@@ -4,6 +4,7 @@ from datetime import datetime, timedelta
 fakePL = Faker('pl_PL')
 
 board_game_names = open('board_game_names.txt', 'r').read().split('\n')
+city_districts = open('city_districts.txt', 'r').read().split('\n')
 
 def random_bool():
     return random.choice([True, False])
@@ -58,7 +59,7 @@ for i in range(number_of_tournaments):
     tournaments.append({
         'tournament_id': starter_tournament_id + i,
         'game': random.choice(board_game_names),
-        'date': fakePL.date_between(start_date='-1y', end_date='today').strftime('%d-%m-%Y'),
+        'date': fakePL.date_between(start_date='-2y', end_date='today').strftime('%d-%m-%Y'),
         'prize_pool': generate_price_pool(min_prize_pool, max_prize_pool),
         'entry_fee': generate_entry_fee(min_entry_fee, max_entry_fee)
     })
@@ -102,4 +103,49 @@ for tournament in tournaments:
             'place': i + 1,
             'prize_amount': winnings_list[i] if i < len(winnings_list) else 0
         })
-print(tournament_participants)
+
+# POSTERS
+posters = []
+for tournament in tournaments:
+    number_of_districts = random.randint(2, 7)
+    districts = random.sample(city_districts, number_of_districts)
+    for i in range(number_of_districts):
+        number_of_posters = random.randint(3, 10)
+        posters.append({
+            'tournament_id': tournament['tournament_id'],
+            'district': districts[i],
+            'number_of_posters': number_of_posters
+        })
+        
+# OWNED BOARD GAMES
+owned_board_games = []
+starter_game_id = 1
+for game in board_game_names:
+    owned_board_games.append({
+        'game_id': starter_game_id + i,
+        'name': game,
+        'quantity': random.randint(1, 5),
+        'rent_price': # wygenerowac ceny do pliku txt
+    })
+    
+# RENTS
+rents = []
+number_of_rents = 10000
+for i in range(number_of_rents):
+    random_customer = random.choice(customers)
+    random_game = random.choice(owned_board_games)
+    rents.append({
+        'customer_code': random_customer['customer_code'],
+        'game': random_game['game_id'],
+        'date_of_rent': fakePL.date_between(start_date='-2y', end_date='today').strftime('%d-%m-%Y')
+    })
+    
+# WORKERS
+workers = []
+number_of_workers = 10
+for i in range(number_of_workers):
+    workers.append({
+        'pesel': generate_pesel(),
+        'name': generate_name(),
+        'surname': generate_surname()
+    })
