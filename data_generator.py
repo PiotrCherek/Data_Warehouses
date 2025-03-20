@@ -16,7 +16,11 @@ def generate_surname():
     return fakePL.last_name()
 
 def generate_pesel():
-    return fakePL.pesel()
+    while True:
+        pesel = fakePL.pesel()
+        if pesel[0] > '6':
+            break
+    return pesel
 
 def generate_birth_date():
     date = fakePL.date_of_birth(minimum_age=18, maximum_age=80)
@@ -116,18 +120,19 @@ for tournament in tournaments:
             'district': districts[i],
             'number_of_posters': number_of_posters
         })
-        
+
 # OWNED BOARD GAMES
 owned_board_games = []
 starter_game_id = 1
 for game in board_game_names:
     owned_board_games.append({
-        'game_id': starter_game_id + i,
+        'game_id': starter_game_id,
         'name': game,
         'quantity': random.randint(1, 5),
-        'rent_price': # wygenerowac ceny do pliku txt
+        'rent_price': random.randint(1, 3) * 5
     })
-    
+    starter_game_id += 1
+
 # RENTS
 rents = []
 number_of_rents = 10000
@@ -139,7 +144,7 @@ for i in range(number_of_rents):
         'game': random_game['game_id'],
         'date_of_rent': fakePL.date_between(start_date='-2y', end_date='today').strftime('%d-%m-%Y')
     })
-    
+
 # WORKERS
 workers = []
 number_of_workers = 10
@@ -149,3 +154,4 @@ for i in range(number_of_workers):
         'name': generate_name(),
         'surname': generate_surname()
     })
+print(workers)

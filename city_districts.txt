@@ -1,12 +1,33 @@
-wrzeszcz
-główny
-oliwa
-a
-b
-c
-d
-e
-f
-głównyh
-i
-jk
+Aniolki
+Bretowo
+Brzezno
+Chelm
+Jasien
+Kokoszki
+Krakowiec-Gorki Zachodnie
+Letnica
+Matarnia
+Mlyniska
+Nowy Port
+Oliwa
+Olszynka
+Orunia Gorna-Gdansk Poludnie
+Orunia-Sw. Wojciech-Lipce
+Osowa
+Piecki-Migowo
+Przerobka
+Przymorze Male
+Przymorze Wielkie
+Rudniki
+Siedlce
+Stogi
+Strzyza
+Suchanino
+Srodmiescie
+Ujescisko-Lostowice
+VII Dwor
+Wrzeszcz Dolny
+Wrzeszcz Gorny
+Wyspa Sobieszewska
+Zaspa-Mlyniec
+Zaspa-Rozst
