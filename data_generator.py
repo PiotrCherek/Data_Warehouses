@@ -1,6 +1,7 @@
 import random
 from faker import Faker
-from datetime import datetime, timedelta
+# from datetime import datetime, timedelta
+import datetime
 fakePL = Faker('pl_PL')
 
 board_game_names = open('board_game_names.txt', 'r').read().split('\n')
@@ -54,19 +55,20 @@ def generate_entry_fee(min_entry_fee, max_entry_fee):
 # TOURNAMENTS
 number_of_tournaments = 100
 tournaments = []
-starter_tournament_id = 1
+current_tournament_id = 1
 max_prize_pool = 5000
 min_prize_pool = 100
 min_entry_fee = 10
 max_entry_fee = 100
 for i in range(number_of_tournaments):
     tournaments.append({
-        'tournament_id': starter_tournament_id + i,
+        'tournament_id': current_tournament_id,
         'game': random.choice(board_game_names),
         'date': fakePL.date_between(start_date='-2y', end_date='today').strftime('%d-%m-%Y'),
         'prize_pool': generate_price_pool(min_prize_pool, max_prize_pool),
         'entry_fee': generate_entry_fee(min_entry_fee, max_entry_fee)
     })
+    current_tournament_id += 1
 
 def generate_tournament_participants(number_of_participants):
     sample = random.sample(customers, number_of_participants)
@@ -154,4 +156,37 @@ for i in range(number_of_workers):
         'name': generate_name(),
         'surname': generate_surname()
     })
-print(workers)
+
+# CEO EXCEL 1
+possible_additional_info = [
+    'rents disabled during tournament',
+    'morning tournament',
+    'evening tournament',
+    'meet 30 minutes before start',
+    'do not bring children',
+    'free snacks and drinks',
+    'no additional info'
+]
+upcoming_tournaments = []
+number_of_upcoming_tournaments = 10
+for i in range(number_of_upcoming_tournaments):
+    random_game = random.choice(owned_board_games)
+    prize_pool = generate_price_pool(min_prize_pool, max_prize_pool)
+    winnings_list = generate_winnings_list(prize_pool)
+    date = fakePL.date_between(start_date=datetime.date.today(), end_date=datetime.date.today() + datetime.timedelta(days=60))
+    formatted_date = date.strftime('%d-%m-%Y')
+    while len(winnings_list) < 5:
+        winnings_list.append(0)
+    upcoming_tournaments.append({
+        'tournament_id': current_tournament_id,
+        'date': formatted_date,
+        'name_of_game': random_game['name'],
+        'entry_price': generate_entry_fee(min_entry_fee, max_entry_fee),
+        'first_place_prize': winnings_list[0],
+        'second_place_prize': winnings_list[1],
+        'third_place_prize': winnings_list[2],
+        'fourth_place_prize': winnings_list[3],
+        'fifth_place_prize': winnings_list[4],
+        'additional_info': random.choice(possible_additional_info)
+    })
+    current_tournament_id += 1
