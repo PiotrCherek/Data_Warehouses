@@ -190,3 +190,19 @@ for i in range(number_of_upcoming_tournaments):
         'additional_info': random.choice(possible_additional_info)
     })
     current_tournament_id += 1
+
+def push_to_file(file_name, data):
+    with open(file_name, 'w') as file:
+        for row in data:
+            line = ''
+            for key, value in row.items():
+                line += str(value) + '|'
+            file.write(line[:-1] + '\n')
+
+push_to_file('customers.bulk', customers)
+push_to_file('tournaments.bulk', tournaments)
+push_to_file('tournament_participants.bulk', tournament_participants)
+push_to_file('posters.bulk', posters)
+push_to_file('owned_board_games.bulk', owned_board_games)
+push_to_file('rents.bulk', rents)
+push_to_file('workers.bulk', workers)
