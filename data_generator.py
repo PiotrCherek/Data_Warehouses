@@ -138,10 +138,12 @@ for game in board_game_names:
 # RENTS
 rents = []
 number_of_rents = 10000
+starter_rent_id = 1
 for i in range(number_of_rents):
     random_customer = random.choice(customers)
     random_game = random.choice(owned_board_games)
     rents.append({
+        'rent_id': starter_rent_id + i,
         'customer_code': random_customer['customer_code'],
         'game': random_game['game_id'],
         'date_of_rent': fakePL.date_between(start_date='-2y', end_date='today').strftime('%d-%m-%Y')
