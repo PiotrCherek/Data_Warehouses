@@ -1,6 +1,5 @@
 import random
 from faker import Faker
-# from datetime import datetime, timedelta
 import datetime
 fakePL = Faker('pl_PL')
 
@@ -25,7 +24,17 @@ def generate_pesel():
 
 def generate_birth_date():
     date = fakePL.date_of_birth(minimum_age=18, maximum_age=80)
-    return date.strftime('%d-%m-%Y')
+    return date.strftime('%Y-%m-%d')
+
+# WORKERS
+workers = []
+number_of_workers = 10
+for i in range(number_of_workers):
+    workers.append({
+        'pesel': generate_pesel(),
+        'name': generate_name(),
+        'surname': generate_surname()
+    })
 
 # CUSTOMER ACCOUNT INFO
 number_of_customers = 1000
@@ -64,9 +73,10 @@ for i in range(number_of_tournaments):
     tournaments.append({
         'tournament_id': current_tournament_id,
         'game_id': random.randint(1, len(board_game_names)),
-        'date': fakePL.date_between(start_date='-2y', end_date='today').strftime('%d-%m-%Y'),
+        'date': fakePL.date_between(start_date='-2y', end_date='today').strftime('%Y-%m-%d'),
         'prize_pool': generate_price_pool(min_prize_pool, max_prize_pool),
-        'entry_fee': generate_entry_fee(min_entry_fee, max_entry_fee)
+        'entry_fee': generate_entry_fee(min_entry_fee, max_entry_fee),
+        'responsible_worker': random.choice(workers)['pesel']
     })
     current_tournament_id += 1
 
@@ -146,17 +156,7 @@ for i in range(number_of_rents):
         'rent_id': starter_rent_id + i,
         'customer_code': random_customer['customer_code'],
         'game': random_game['game_id'],
-        'date_of_rent': fakePL.date_between(start_date='-2y', end_date='today').strftime('%d-%m-%Y')
-    })
-
-# WORKERS
-workers = []
-number_of_workers = 10
-for i in range(number_of_workers):
-    workers.append({
-        'pesel': generate_pesel(),
-        'name': generate_name(),
-        'surname': generate_surname()
+        'date_of_rent': fakePL.date_between(start_date='-2y', end_date='today').strftime('%Y-%m-%d')
     })
 
 # CEO EXCEL 1
@@ -176,7 +176,7 @@ for i in range(number_of_upcoming_tournaments):
     prize_pool = generate_price_pool(min_prize_pool, max_prize_pool)
     winnings_list = generate_winnings_list(prize_pool)
     date = fakePL.date_between(start_date=datetime.date.today(), end_date=datetime.date.today() + datetime.timedelta(days=60))
-    formatted_date = date.strftime('%d-%m-%Y')
+    formatted_date = date.strftime('%Y-%m-%d')
     while len(winnings_list) < 5:
         winnings_list.append(0)
     upcoming_tournaments.append({
