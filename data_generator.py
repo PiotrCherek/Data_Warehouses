@@ -63,7 +63,7 @@ max_entry_fee = 100
 for i in range(number_of_tournaments):
     tournaments.append({
         'tournament_id': current_tournament_id,
-        'game': random.choice(board_game_names),
+        'game_id': random.randint(1, len(board_game_names)),
         'date': fakePL.date_between(start_date='-2y', end_date='today').strftime('%d-%m-%Y'),
         'prize_pool': generate_price_pool(min_prize_pool, max_prize_pool),
         'entry_fee': generate_entry_fee(min_entry_fee, max_entry_fee)
