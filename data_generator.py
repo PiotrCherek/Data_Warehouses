@@ -200,10 +200,10 @@ for i in range(number_of_tournaments_T2):
         })
 
 # OWNED BOARD GAMES
-owned_board_games = []
+our_board_games = []
 starter_game_id = 1
 for game in board_game_names:
-    owned_board_games.append({
+    our_board_games.append({
         'game_id': starter_game_id,
         'name': game,
         'quantity': random.randint(1, 5),
@@ -220,7 +220,7 @@ number_of_rents_T1 = number_of_records_T1(number_of_rents_T2)
 starter_rent_id = 1
 for i in range(number_of_rents_T2):
     random_customer = random.choice(customers_T1)
-    random_game = random.choice(owned_board_games)
+    random_game = random.choice(our_board_games)
     date = fakePL.date_between(start_date='-2y', end_date='today').strftime('%Y-%m-%d')
     if i < number_of_rents_T1:
         rents_T1.append({
@@ -446,7 +446,7 @@ push_to_file('tournament_participants_T1.bulk', tournament_participants_T1)
 push_to_file('tournament_participants_T2.bulk', tournament_participants_T2)
 push_to_file('posters_T1.bulk', posters_T1)
 push_to_file('posters_T2.bulk', posters_T2)
-push_to_file('owned_board_games.bulk', owned_board_games)
+push_to_file('owned_board_games.bulk', our_board_games)
 push_to_file('rents_T1.bulk', rents_T1)
 push_to_file('rents_T2.bulk', rents_T2)
 push_to_file('workers_T1.bulk', workers_T1)
