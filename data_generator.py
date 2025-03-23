@@ -1,6 +1,7 @@
 import random
 from faker import Faker
 import datetime
+import openpyxl
 fakePL = Faker('pl_PL')
 
 board_game_names = open('board_game_names.txt', 'r').read().split('\n')
@@ -192,6 +193,18 @@ for i in range(number_of_upcoming_tournaments):
         'additional_info': random.choice(possible_additional_info)
     })
     current_tournament_id += 1
+
+# Create Excel file
+workbook = openpyxl.Workbook()
+sheet = workbook.active
+headers = list(upcoming_tournaments[0].keys())
+for col_num, header in enumerate(headers, 1):
+    sheet.cell(row=1, column=col_num, value=header)
+for row_num, tournament in enumerate(upcoming_tournaments, 2):
+    for col_num, header in enumerate(headers, 1):
+        sheet.cell(row=row_num, column=col_num, value=tournament[header])
+workbook.save('upcoming_tournaments.xlsx')
+
 
 def push_to_file(file_name, data):
     with open(file_name, 'w') as file:
