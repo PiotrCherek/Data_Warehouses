@@ -9,6 +9,9 @@ fakePL = Faker('pl_PL')
 board_game_names = open('board_game_names.txt', 'r').read().split('\n')
 city_districts = open('city_districts.txt', 'r').read().split('\n')
 
+def number_of_records_T1(number):
+    return (number * 0.7) - (number * 0.7 % 1)
+
 def random_bool():
     return random.choice([True, False])
 
@@ -32,26 +35,52 @@ def generate_birth_date():
     return date.strftime('%Y-%m-%d')
 
 # WORKERS
-workers = []
-number_of_workers = 10
-for i in range(number_of_workers):
-    workers.append({
-        'pesel': generate_pesel(),
-        'name': generate_name(),
-        'surname': generate_surname()
+workers_T1 = []
+workers_T2 = []
+number_of_workers_T2 = 10
+number_of_workers_T1 = number_of_records_T1(number_of_workers_T2)
+for i in range(number_of_workers_T2):
+    pesel = generate_pesel()
+    name = generate_name()
+    surname = generate_surname()
+    if i < number_of_workers_T1:
+        workers_T1.append({
+            'pesel': pesel,
+            'name': name,
+            'surname': surname
+        })
+    workers_T2.append({
+        'pesel': pesel,
+        'name': name,
+        'surname': surname
     })
 
 # CUSTOMER ACCOUNT INFO
-number_of_customers = 1000
-customers = []
+customers_T1 = []
+customers_T2 = []
+number_of_customers_T2 = 1000
+number_of_customers_T1 = number_of_records_T1(number_of_customers_T2)
 starter_customer_code = 10000
-for i in range(number_of_customers):
-    customers.append({
-        'customer_code': starter_customer_code + i,
-        'name': generate_name(),
-        'surname': generate_surname(),
-        'birth_date': generate_birth_date(),
-        'is_subscribed': random_bool()
+for i in range(number_of_customers_T2):
+    customer_code = starter_customer_code + i
+    name = generate_name()
+    surname = generate_surname()
+    birth_date = generate_birth_date()
+    is_subscribed = random_bool()
+    if i < number_of_customers_T1:
+        customers_T1.append({
+            'customer_code': customer_code,
+            'name': name,
+            'surname': surname,
+            'birth_date': birth_date,
+            'is_subscribed': is_subscribed
+        })
+    customers_T2.append({
+        'customer_code': customer_code,
+        'name': name,
+        'surname': surname,
+        'birth_date': birth_date,
+        'is_subscribed': is_subscribed
     })
 
 def generate_price_pool(min_prize_pool, max_prize_pool):
@@ -67,26 +96,43 @@ def generate_entry_fee(min_entry_fee, max_entry_fee):
     return random_number
 
 # TOURNAMENTS
-number_of_tournaments = 100
-tournaments = []
+number_of_tournaments_T2 = 100
+number_of_tournaments_T1 = number_of_records_T1(number_of_tournaments_T2)
+tournaments_T1 = []
+tournaments_T2 = []
 current_tournament_id = 1
 max_prize_pool = 5000
 min_prize_pool = 100
 min_entry_fee = 10
 max_entry_fee = 100
-for i in range(number_of_tournaments):
-    tournaments.append({
-        'tournament_id': current_tournament_id,
-        'game_id': random.randint(1, len(board_game_names)),
-        'date': fakePL.date_between(start_date='-2y', end_date='today').strftime('%Y-%m-%d'),
-        'prize_pool': generate_price_pool(min_prize_pool, max_prize_pool),
-        'entry_fee': generate_entry_fee(min_entry_fee, max_entry_fee),
-        'responsible_worker': random.choice(workers)['pesel']
+for i in range(number_of_tournaments_T2):
+    tournament_id = current_tournament_id
+    game_id = random.randint(1, len(board_game_names))
+    date = fakePL.date_between(start_date='-2y', end_date='today').strftime('%Y-%m-%d')
+    prize_pool = generate_price_pool(min_prize_pool, max_prize_pool)
+    entry_fee = generate_entry_fee(min_entry_fee, max_entry_fee)
+    responsible_worker = random.choice(workers_T1)['pesel']
+    if i < number_of_tournaments_T1:
+        tournaments_T1.append({
+            'tournament_id': tournament_id,
+            'game_id': game_id,
+            'date': date,
+            'prize_pool': prize_pool,
+            'entry_fee': entry_fee,
+            'responsible_worker': responsible_worker
+        })
+    tournaments_T2.append({
+        'tournament_id': tournament_id,
+        'game_id': game_id,
+        'date': date,
+        'prize_pool': prize_pool,
+        'entry_fee': entry_fee,
+        'responsible_worker': responsible_worker
     })
     current_tournament_id += 1
 
 def generate_tournament_participants(number_of_participants):
-    sample = random.sample(customers, number_of_participants)
+    sample = random.sample(customers_T1, number_of_participants)
     return [customer['customer_code'] for customer in sample]
 
 def split_prize_pool(num_of_splits, prize_pool):
@@ -112,37 +158,52 @@ def generate_winnings_list(prize_pool):
     return split_prize_pool(num_of_winners, prize_pool)
 
 # TOURNAMENT PARTICIPANTS
-tournament_participants = []
-for tournament in tournaments:
+tournament_participants_T1 = []
+tournament_participants_T2 = []
+for i in range(number_of_tournaments_T2):
     number_of_participants = random.randint(5, 100)
     current_tournament_participants = generate_tournament_participants(number_of_participants)
-    winnings_list = generate_winnings_list(tournament['prize_pool'])
-    for i in range(number_of_participants):
-        tournament_participants.append({
-            'customer_code': current_tournament_participants[i],
-            'tournament_id': tournament['tournament_id'],
-            'place': i + 1,
-            'prize_amount': winnings_list[i] if i < len(winnings_list) else 0
+    winnings_list = generate_winnings_list(tournaments_T2[i]['prize_pool'])
+    for j in range(number_of_participants):
+        if i < number_of_tournaments_T1:
+            tournament_participants_T1.append({
+                'customer_code': current_tournament_participants[j],
+                'tournament_id': tournaments_T2[i]['tournament_id'],
+                'place': j + 1,
+                'prize_amount': winnings_list[j] if j < len(winnings_list) else 0
+            })
+        tournament_participants_T2.append({
+            'customer_code': current_tournament_participants[j],
+            'tournament_id': tournaments_T2[i]['tournament_id'],
+            'place': j + 1,
+            'prize_amount': winnings_list[j] if j < len(winnings_list) else 0
         })
 
 # POSTERS
-posters = []
-for tournament in tournaments:
+posters_T1 = []
+posters_T2 = []
+for i in range(number_of_tournaments_T2):
     number_of_districts = random.randint(2, 7)
     districts = random.sample(city_districts, number_of_districts)
-    for i in range(number_of_districts):
+    for j in range(number_of_districts):
         number_of_posters = random.randint(3, 10)
-        posters.append({
-            'tournament_id': tournament['tournament_id'],
-            'district': districts[i],
+        if i < number_of_tournaments_T1:
+            posters_T1.append({
+                'tournament_id': tournaments_T2[i]['tournament_id'],
+                'district': districts[j],
+                'number_of_posters': number_of_posters
+            })
+        posters_T2.append({
+            'tournament_id': tournaments_T2[i]['tournament_id'],
+            'district': districts[j],
             'number_of_posters': number_of_posters
         })
 
 # OWNED BOARD GAMES
-owned_board_games = []
+our_board_games = []
 starter_game_id = 1
 for game in board_game_names:
-    owned_board_games.append({
+    our_board_games.append({
         'game_id': starter_game_id,
         'name': game,
         'quantity': random.randint(1, 5),
@@ -151,17 +212,28 @@ for game in board_game_names:
     starter_game_id += 1
 
 # RENTS
-rents = []
-number_of_rents = 10000
+rents_T1 = []
+rents_T2 = []
+number_of_rents_T2 = 10000
+number_of_rents_T1 = number_of_records_T1(number_of_rents_T2)
+
 starter_rent_id = 1
-for i in range(number_of_rents):
-    random_customer = random.choice(customers)
-    random_game = random.choice(owned_board_games)
-    rents.append({
+for i in range(number_of_rents_T2):
+    random_customer = random.choice(customers_T1)
+    random_game = random.choice(our_board_games)
+    date = fakePL.date_between(start_date='-2y', end_date='today').strftime('%Y-%m-%d')
+    if i < number_of_rents_T1:
+        rents_T1.append({
+            'rent_id': starter_rent_id + i,
+            'customer_code': random_customer['customer_code'],
+            'game': random_game['game_id'],
+            'date_of_rent': date
+        })
+    rents_T2.append({
         'rent_id': starter_rent_id + i,
         'customer_code': random_customer['customer_code'],
         'game': random_game['game_id'],
-        'date_of_rent': fakePL.date_between(start_date='-2y', end_date='today').strftime('%Y-%m-%d')
+        'date_of_rent': date
     })
 
 # # CEO EXCEL 1
@@ -366,10 +438,16 @@ def push_to_file(file_name, data):
                 line += str(value) + '|'
             file.write(line[:-1] + '\n')
 
-#push_to_file('customers.bulk', customers)
-#push_to_file('tournaments.bulk', tournaments)
-#push_to_file('tournament_participants.bulk', tournament_participants)
-#push_to_file('posters.bulk', posters)
-#push_to_file('owned_board_games.bulk', owned_board_games)
-#push_to_file('rents.bulk', rents)
-#push_to_file('workers.bulk', workers)
+push_to_file('customers_T1.bulk', customers_T1)
+push_to_file('customers_T2.bulk', customers_T2)
+push_to_file('tournaments_T1.bulk', tournaments_T1)
+push_to_file('tournaments_T2.bulk', tournaments_T2)
+push_to_file('tournament_participants_T1.bulk', tournament_participants_T1)
+push_to_file('tournament_participants_T2.bulk', tournament_participants_T2)
+push_to_file('posters_T1.bulk', posters_T1)
+push_to_file('posters_T2.bulk', posters_T2)
+push_to_file('owned_board_games.bulk', our_board_games)
+push_to_file('rents_T1.bulk', rents_T1)
+push_to_file('rents_T2.bulk', rents_T2)
+push_to_file('workers_T1.bulk', workers_T1)
+push_to_file('workers_T2.bulk', workers_T2)
