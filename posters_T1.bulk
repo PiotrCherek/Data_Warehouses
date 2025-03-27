@@ -1,310 +1,320 @@
-1|Chelm|8
+1|Zaspa-Rozst|5
+1|Letnica|7
+1|Zaspa-Mlyniec|7
 1|Suchanino|8
-1|Ujescisko-Lostowice|8
-1|Stogi|3
-1|Krakowiec-Gorki Zachodnie|6
-2|Letnica|4
-2|Krakowiec-Gorki Zachodnie|9
-2|Zaspa-Mlyniec|10
-3|Matarnia|6
-3|Przerobka|9
-3|Kokoszki|10
-4|Zaspa-Rozst|9
-4|Przymorze Male|9
-4|Krakowiec-Gorki Zachodnie|7
-4|Chelm|6
-4|Matarnia|3
-4|Orunia Gorna-Gdansk Poludnie|9
-4|Siedlce|5
-5|Letnica|10
-5|Rudniki|8
-6|Bretowo|10
-6|Jasien|6
-6|Olszynka|6
-7|Orunia Gorna-Gdansk Poludnie|4
-7|Suchanino|4
-7|Piecki-Migowo|9
-7|Nowy Port|9
-7|Zaspa-Rozst|6
-7|Aniolki|9
-8|Aniolki|7
-8|Ujescisko-Lostowice|5
-8|Przerobka|8
-8|Wrzeszcz Gorny|8
-8|Suchanino|8
-8|VII Dwor|7
-8|Jasien|3
-9|Brzezno|4
-9|Ujescisko-Lostowice|5
-9|Piecki-Migowo|10
-9|Wyspa Sobieszewska|7
-9|Bretowo|5
-9|Krakowiec-Gorki Zachodnie|4
-9|Suchanino|4
-10|Suchanino|5
-10|Matarnia|5
-10|Orunia Gorna-Gdansk Poludnie|9
-10|Ujescisko-Lostowice|8
-11|Jasien|10
-11|Przymorze Male|10
-11|Przerobka|3
-11|Bretowo|8
-11|Matarnia|10
-11|Mlyniska|4
-11|Brzezno|9
-12|Jasien|10
-12|Matarnia|7
-12|Aniolki|3
-12|Zaspa-Mlyniec|9
-12|Olszynka|5
-13|Nowy Port|9
-13|Wrzeszcz Dolny|7
-13|Kokoszki|3
-14|Chelm|6
-14|Przerobka|3
-14|Jasien|4
-14|Srodmiescie|10
-15|Bretowo|8
-15|Osowa|8
-15|Przerobka|3
-15|Orunia-Sw. Wojciech-Lipce|4
-16|Przerobka|10
-16|Mlyniska|6
-16|Piecki-Migowo|5
-16|Jasien|4
-16|Orunia-Sw. Wojciech-Lipce|6
-16|Chelm|3
-16|Brzezno|6
-17|VII Dwor|10
-17|Mlyniska|5
-17|Orunia-Sw. Wojciech-Lipce|3
-17|Osowa|3
-17|Chelm|3
-18|Aniolki|5
-18|Przerobka|10
-18|Strzyza|8
-18|Wrzeszcz Gorny|9
-18|Przymorze Wielkie|4
-18|Mlyniska|9
-19|Kokoszki|5
-19|Zaspa-Rozst|3
-19|Siedlce|5
-19|Krakowiec-Gorki Zachodnie|3
-19|VII Dwor|6
-20|Chelm|3
-20|Suchanino|7
-20|Jasien|7
-20|Brzezno|4
-21|Kokoszki|3
-21|Orunia-Sw. Wojciech-Lipce|6
-21|Brzezno|5
-21|Wyspa Sobieszewska|6
-21|Bretowo|4
-22|Wyspa Sobieszewska|6
-22|Rudniki|9
-22|Oliwa|4
-22|Matarnia|7
-22|Przymorze Wielkie|4
-22|Kokoszki|4
-23|Przerobka|10
-23|Jasien|8
-23|Brzezno|7
-23|Osowa|3
-24|Rudniki|9
-24|Strzyza|5
-24|Orunia-Sw. Wojciech-Lipce|10
-24|Siedlce|4
-24|Srodmiescie|10
-25|VII Dwor|5
-25|Wyspa Sobieszewska|3
-25|Bretowo|7
-26|Chelm|8
-26|Orunia-Sw. Wojciech-Lipce|5
-26|Letnica|8
-26|Kokoszki|8
-26|Siedlce|6
-26|Mlyniska|3
-26|Srodmiescie|6
-27|Wyspa Sobieszewska|7
-27|VII Dwor|10
-27|Suchanino|3
-27|Zaspa-Mlyniec|7
-27|Nowy Port|3
-28|Przerobka|5
-28|Mlyniska|10
-28|Orunia Gorna-Gdansk Poludnie|7
-28|Zaspa-Mlyniec|10
-28|Letnica|4
-29|Rudniki|3
-29|Chelm|6
-29|Krakowiec-Gorki Zachodnie|5
-29|Przymorze Male|5
-29|Nowy Port|3
-30|Zaspa-Mlyniec|6
-30|Siedlce|5
-30|Orunia Gorna-Gdansk Poludnie|8
-30|Orunia-Sw. Wojciech-Lipce|9
-30|Nowy Port|7
-30|VII Dwor|5
-30|Matarnia|9
-31|Piecki-Migowo|8
-31|Krakowiec-Gorki Zachodnie|4
-31|Wyspa Sobieszewska|8
-31|Osowa|8
-31|Letnica|6
-32|Piecki-Migowo|4
-32|Jasien|8
-32|Matarnia|10
-32|Przymorze Male|5
-33|Siedlce|8
-33|Letnica|5
-33|Strzyza|3
-33|Bretowo|10
-33|Srodmiescie|6
-34|Mlyniska|5
-34|Bretowo|8
-35|Krakowiec-Gorki Zachodnie|6
-35|Mlyniska|6
-36|Suchanino|10
-36|Bretowo|6
-36|Jasien|5
-36|Brzezno|7
-36|Olszynka|6
-37|Rudniki|4
-37|VII Dwor|5
-37|Srodmiescie|5
-38|Nowy Port|8
-38|Rudniki|10
-38|Aniolki|8
-38|Mlyniska|7
-38|Krakowiec-Gorki Zachodnie|10
-38|Bretowo|10
-39|Orunia-Sw. Wojciech-Lipce|6
-39|Mlyniska|3
-39|VII Dwor|4
-39|Brzezno|8
-39|Jasien|9
-40|Matarnia|3
-40|Ujescisko-Lostowice|3
-40|Siedlce|10
-40|Przymorze Male|5
+1|Rudniki|3
+1|Chelm|4
+1|Stogi|6
+2|Przymorze Wielkie|6
+2|Piecki-Migowo|4
+2|Stogi|7
+2|Bretowo|4
+2|Oliwa|10
+2|Zaspa-Rozst|4
+3|Letnica|5
+3|Piecki-Migowo|6
+3|Siedlce|4
+3|Zaspa-Mlyniec|5
+3|Strzyza|9
+3|Brzezno|8
+3|Stogi|9
+4|Mlyniska|4
+4|Letnica|4
+5|Bretowo|8
+5|VII Dwor|5
+5|Osowa|8
+5|Srodmiescie|10
+5|Wyspa Sobieszewska|4
+5|Stogi|6
+6|Wrzeszcz Gorny|6
+6|Brzezno|5
+6|Wyspa Sobieszewska|7
+6|Wrzeszcz Dolny|4
+6|Chelm|4
+7|Mlyniska|6
+7|Stogi|5
+7|Piecki-Migowo|5
+7|Osowa|7
+7|Orunia Gorna-Gdansk Poludnie|5
+8|Nowy Port|4
+8|Zaspa-Rozst|10
+8|Bretowo|7
+8|Oliwa|5
+9|Srodmiescie|8
+9|Nowy Port|6
+9|Piecki-Migowo|3
+9|Zaspa-Mlyniec|8
+9|Jasien|7
+9|Rudniki|9
+10|Srodmiescie|9
+10|Przymorze Wielkie|3
+10|Chelm|7
+10|Osowa|3
+10|Bretowo|9
+10|Stogi|5
+11|Brzezno|8
+11|Nowy Port|3
+11|Krakowiec-Gorki Zachodnie|10
+11|Suchanino|10
+11|Aniolki|4
+11|Wyspa Sobieszewska|4
+12|Przymorze Male|9
+12|Mlyniska|8
+12|Strzyza|6
+12|VII Dwor|4
+12|Przymorze Wielkie|4
+12|Bretowo|3
+13|Kokoszki|7
+13|Przymorze Male|7
+14|Bretowo|7
+14|Krakowiec-Gorki Zachodnie|3
+14|VII Dwor|8
+14|Przymorze Wielkie|10
+14|Wrzeszcz Dolny|7
+15|Zaspa-Rozst|9
+15|Chelm|10
+15|Bretowo|3
+15|Strzyza|8
+15|Matarnia|4
+15|Olszynka|6
+15|Piecki-Migowo|8
+16|Olszynka|5
+16|Przerobka|9
+16|Orunia-Sw. Wojciech-Lipce|3
+16|Krakowiec-Gorki Zachodnie|8
+16|Wrzeszcz Gorny|3
+16|Rudniki|6
+17|Przerobka|8
+17|Jasien|6
+18|Chelm|5
+18|Bretowo|9
+18|Wrzeszcz Gorny|10
+18|Olszynka|7
+18|Matarnia|3
+18|Przymorze Wielkie|8
+19|Kokoszki|10
+19|Wrzeszcz Dolny|10
+20|Zaspa-Mlyniec|4
+20|Zaspa-Rozst|3
+21|Rudniki|6
+21|Aniolki|8
+21|Chelm|10
+21|Jasien|4
+21|Siedlce|7
+21|Bretowo|7
+22|Rudniki|4
+22|Srodmiescie|8
+23|Aniolki|4
+23|Letnica|6
+23|Piecki-Migowo|8
+23|Stogi|10
+23|Chelm|10
+24|Nowy Port|7
+24|Kokoszki|6
+24|Jasien|5
+25|Srodmiescie|7
+25|Przymorze Male|7
+25|Orunia-Sw. Wojciech-Lipce|3
+25|Zaspa-Mlyniec|5
+25|Mlyniska|4
+25|Bretowo|5
+26|Strzyza|3
+26|Wyspa Sobieszewska|9
+26|Bretowo|5
+26|Kokoszki|6
+26|Nowy Port|9
+26|Letnica|5
+26|Orunia-Sw. Wojciech-Lipce|4
+27|Osowa|9
+27|Orunia-Sw. Wojciech-Lipce|8
+27|Kokoszki|4
+28|Przymorze Male|6
+28|Wrzeszcz Gorny|10
+28|Suchanino|7
+29|Mlyniska|3
+29|Rudniki|9
+29|Piecki-Migowo|9
+29|Oliwa|4
+29|VII Dwor|5
+29|Nowy Port|4
+29|Jasien|10
+30|Rudniki|4
+30|Przymorze Wielkie|6
+30|Przerobka|3
+30|Osowa|5
+30|Zaspa-Rozst|5
+30|Olszynka|8
+30|VII Dwor|10
+31|Ujescisko-Lostowice|3
+31|Stogi|6
+31|Srodmiescie|5
+31|Chelm|5
+31|Bretowo|6
+32|Bretowo|10
+32|Przymorze Male|7
+32|VII Dwor|5
+32|Piecki-Migowo|9
+32|Osowa|9
+33|Aniolki|6
+33|Przerobka|4
+33|Strzyza|6
+33|Osowa|4
+33|Wrzeszcz Dolny|6
+34|Bretowo|10
+34|Piecki-Migowo|5
+34|Zaspa-Rozst|4
+35|Przerobka|7
+35|Przymorze Male|9
+35|Oliwa|8
+35|Orunia Gorna-Gdansk Poludnie|3
+35|Srodmiescie|5
+35|Letnica|8
+36|Bretowo|9
+36|Aniolki|9
+37|Przymorze Wielkie|4
+37|Suchanino|5
+37|Przerobka|9
+37|Zaspa-Rozst|8
+37|Letnica|6
+38|Stogi|6
+38|Matarnia|3
+38|Ujescisko-Lostowice|7
+38|Srodmiescie|8
+39|Strzyza|9
+39|VII Dwor|7
+39|Srodmiescie|5
+40|Suchanino|10
+40|VII Dwor|8
+40|Zaspa-Rozst|4
+40|Piecki-Migowo|6
+40|Kokoszki|6
+40|Przerobka|9
+40|Srodmiescie|3
+41|Piecki-Migowo|3
 41|Zaspa-Mlyniec|5
-41|VII Dwor|7
-42|Przymorze Wielkie|4
-42|Orunia-Sw. Wojciech-Lipce|5
-43|Krakowiec-Gorki Zachodnie|8
-43|Bretowo|7
-43|Suchanino|9
+41|Chelm|9
+41|Zaspa-Rozst|10
+41|Przymorze Wielkie|8
+42|Mlyniska|9
+42|Aniolki|6
+42|Rudniki|7
+42|Suchanino|7
+42|Zaspa-Mlyniec|10
+43|Przymorze Male|8
+43|Oliwa|4
+43|Krakowiec-Gorki Zachodnie|4
 43|Rudniki|3
-43|Siedlce|6
-44|Siedlce|9
-44|Mlyniska|10
-44|Krakowiec-Gorki Zachodnie|3
-44|Aniolki|4
-44|Wrzeszcz Gorny|10
-44|Letnica|5
-45|VII Dwor|5
-45|Wrzeszcz Dolny|3
-46|Brzezno|5
-46|Suchanino|3
-47|Osowa|10
-47|Oliwa|7
-47|Wrzeszcz Gorny|8
-47|Aniolki|10
-47|Bretowo|10
-47|VII Dwor|9
-48|Olszynka|5
-48|Mlyniska|9
-48|Stogi|7
-49|Przerobka|3
-49|Olszynka|3
-50|Jasien|3
-50|Letnica|4
-51|Mlyniska|6
+43|Suchanino|8
+43|Matarnia|9
+44|Jasien|9
+44|Brzezno|10
+44|Mlyniska|7
+44|Osowa|10
+44|Letnica|6
+45|Przymorze Male|9
+45|Siedlce|10
+45|Srodmiescie|4
+46|Suchanino|10
+46|Aniolki|10
+46|Zaspa-Rozst|4
+47|Srodmiescie|8
+47|Orunia Gorna-Gdansk Poludnie|10
+47|Przerobka|4
+47|Stogi|4
+48|Przerobka|7
+48|Przymorze Wielkie|9
+48|Piecki-Migowo|5
+48|Bretowo|8
+49|Wyspa Sobieszewska|5
+49|Letnica|9
+49|Przymorze Male|7
+49|Przerobka|8
+49|Zaspa-Mlyniec|5
+50|Jasien|6
+50|Stogi|8
+50|Osowa|5
+50|Suchanino|8
+50|Aniolki|8
+50|Ujescisko-Lostowice|4
+51|Wrzeszcz Gorny|3
 51|Letnica|4
-51|Orunia-Sw. Wojciech-Lipce|4
-51|Piecki-Migowo|7
-51|Olszynka|6
-52|Strzyza|7
-52|Jasien|4
-52|Stogi|3
-52|Oliwa|5
-53|Wrzeszcz Gorny|9
-53|Aniolki|9
+51|Orunia Gorna-Gdansk Poludnie|8
+51|Siedlce|9
+51|Krakowiec-Gorki Zachodnie|7
+51|Srodmiescie|7
+52|Aniolki|9
+52|Nowy Port|5
+52|Strzyza|9
+52|Wyspa Sobieszewska|3
+52|VII Dwor|4
+52|Zaspa-Mlyniec|7
+53|Aniolki|5
+53|Przerobka|8
 53|Wyspa Sobieszewska|9
-53|Zaspa-Mlyniec|7
-53|Srodmiescie|9
-53|Przerobka|6
-54|Przymorze Wielkie|4
-54|Oliwa|9
-54|Jasien|3
-55|Krakowiec-Gorki Zachodnie|8
-55|Chelm|7
-55|Suchanino|8
-55|Mlyniska|4
-55|Rudniki|3
-56|Strzyza|7
-56|Wrzeszcz Dolny|3
-56|Osowa|9
-56|Matarnia|8
-56|Zaspa-Rozst|10
-56|Mlyniska|5
-56|Wyspa Sobieszewska|6
-57|Strzyza|9
+53|Matarnia|4
+53|Wrzeszcz Gorny|7
+53|Suchanino|4
+53|Strzyza|4
+54|Przymorze Wielkie|6
+54|Kokoszki|6
+54|Piecki-Migowo|6
+54|Zaspa-Mlyniec|10
+54|Suchanino|5
+54|Orunia-Sw. Wojciech-Lipce|7
+54|Przymorze Male|5
+55|Jasien|5
+55|Przymorze Wielkie|5
+56|Stogi|4
+56|Olszynka|9
+57|Brzezno|9
+57|Oliwa|9
+57|Krakowiec-Gorki Zachodnie|5
 57|Zaspa-Rozst|4
-57|Ujescisko-Lostowice|8
-57|Krakowiec-Gorki Zachodnie|7
-58|Wyspa Sobieszewska|10
-58|VII Dwor|8
-58|Suchanino|3
-59|Wrzeszcz Gorny|8
-59|Jasien|10
-59|Chelm|4
-59|Aniolki|6
-59|Ujescisko-Lostowice|8
-59|Mlyniska|10
-60|Stogi|9
-60|VII Dwor|3
-60|Srodmiescie|10
-60|Przymorze Male|5
-61|Siedlce|7
-61|Przymorze Male|3
-61|Piecki-Migowo|9
-61|Srodmiescie|10
-61|Chelm|6
-61|Przerobka|5
-62|Letnica|7
-62|Siedlce|4
-62|Jasien|10
-63|Kokoszki|4
-63|VII Dwor|3
-63|Srodmiescie|7
-64|Strzyza|6
-64|Chelm|7
-64|Oliwa|7
-64|Orunia-Sw. Wojciech-Lipce|9
-64|Olszynka|4
-65|Letnica|4
-65|Strzyza|8
-65|Orunia-Sw. Wojciech-Lipce|10
-65|Suchanino|7
-66|Wrzeszcz Dolny|10
-66|Przerobka|8
-66|Jasien|8
-67|Siedlce|7
-67|Stogi|7
-67|Strzyza|3
-67|Letnica|6
-68|Strzyza|5
-68|Matarnia|6
-68|Bretowo|5
-68|Suchanino|3
-68|Srodmiescie|10
-69|Chelm|9
-69|Oliwa|3
-69|Aniolki|10
-69|Stogi|7
-69|VII Dwor|6
-69|Strzyza|9
-70|Krakowiec-Gorki Zachodnie|8
-70|Mlyniska|10
+57|Orunia-Sw. Wojciech-Lipce|9
+57|Wrzeszcz Gorny|6
+58|Siedlce|6
+58|VII Dwor|5
+58|Bretowo|10
+58|Mlyniska|9
+59|Oliwa|5
+59|Piecki-Migowo|7
+59|Krakowiec-Gorki Zachodnie|4
+59|Jasien|8
+59|Przymorze Male|10
+60|Przymorze Male|6
+60|Siedlce|10
+61|Strzyza|7
+61|Brzezno|5
+62|Jasien|5
+62|Strzyza|3
+62|Matarnia|5
+63|Siedlce|4
+63|Matarnia|3
+63|Przymorze Wielkie|8
+63|Jasien|9
+64|Jasien|9
+64|VII Dwor|4
+64|Srodmiescie|4
+65|Krakowiec-Gorki Zachodnie|7
+65|Mlyniska|6
+65|Przymorze Wielkie|10
+65|Wrzeszcz Gorny|5
+65|VII Dwor|3
+66|Przymorze Wielkie|10
+66|Letnica|3
+66|Rudniki|6
+66|Matarnia|8
+66|VII Dwor|9
+67|Wrzeszcz Dolny|10
+67|Brzezno|9
+67|Kokoszki|8
+67|Ujescisko-Lostowice|10
+67|Zaspa-Rozst|6
+67|Bretowo|5
+68|Suchanino|8
+68|Letnica|3
+69|Wrzeszcz Gorny|3
+69|Mlyniska|9
+70|Osowa|8
+70|Wyspa Sobieszewska|9
+70|Stogi|8

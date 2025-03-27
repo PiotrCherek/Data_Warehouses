@@ -6,7 +6,13 @@ import unidecode
 import os
 fakePL = Faker('pl_PL')
 
-board_game_names = open('board_game_names.txt', 'r').read().split('\n')
+#board_game_names = open('board_game_names.txt', 'r').read().split('\n')
+#board_games = open('board_games.txt', 'r').read().split('\n')
+with open('board_games.txt', 'r') as file:
+    board_games = file.readlines()
+    for i in range(len(board_games)):
+        board_games[i] = board_games[i].rstrip().split()
+#print(board_games)
 city_districts = open('city_districts.txt', 'r').read().split('\n')
 
 def number_of_records_T1(number):
@@ -107,7 +113,7 @@ min_entry_fee = 10
 max_entry_fee = 100
 for i in range(number_of_tournaments_T2):
     tournament_id = current_tournament_id
-    game_id = random.randint(1, len(board_game_names))
+    game_id = random.randint(1, len(board_games))
     date = fakePL.date_between(start_date='-2y', end_date='today').strftime('%Y-%m-%d')
     prize_pool = generate_price_pool(min_prize_pool, max_prize_pool)
     entry_fee = generate_entry_fee(min_entry_fee, max_entry_fee)
@@ -202,10 +208,11 @@ for i in range(number_of_tournaments_T2):
 # OWNED BOARD GAMES
 our_board_games = []
 starter_game_id = 1
-for game in board_game_names:
+for game in board_games:
     our_board_games.append({
         'game_id': starter_game_id,
-        'name': game,
+        'name': game[0],
+        'category': game[1],
         'quantity': random.randint(1, 5),
         'rent_price': random.randint(1, 3) * 5
     })

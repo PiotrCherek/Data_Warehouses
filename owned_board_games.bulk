@@ -1,51 +1,51 @@
-1|Chess|3|5
-2|Catan|1|15
-3|Carcassonne|2|10
-4|Ticket to Ride|3|10
-5|Pandemic|5|5
-6|Azul|1|10
-7|Codenames|3|10
-8|Splendor|4|5
-9|Dominion|5|15
-10|7 Wonders|4|15
-11|Wingspan|4|10
-12|Gloomhaven|5|10
-13|Terraforming Mars|1|15
-14|Scythe|2|15
-15|Root|3|5
-16|The Crew: Mission Deep Sea|4|15
-17|Dixit|1|15
-18|The Resistance: Avalon|4|10
-19|Sheriff of Nottingham|2|10
-20|Betrayal at House on the Hill|1|10
-21|Small World|1|5
-22|Everdell|4|15
-23|Patchwork|4|10
-24|Twilight Struggle|1|10
-25|Agricola|2|5
-26|Puerto Rico|2|15
-27|Brass: Birmingham|5|5
-28|Ark Nova|2|5
-29|Lost Ruins of Arnak|1|5
-30|The Castles of Burgundy|1|10
-31|Clank!|5|15
-32|Great Western Trail|5|5
-33|Tzolk'in: The Mayan Calendar|4|5
-34|King of Tokyo|1|15
-35|Love Letter|1|5
-36|Hanabi|1|10
-37|Jaipur|4|15
-38|Galaxy Trucker|2|15
-39|Roll for the Galaxy|2|5
-40|Through the Ages: A New Story of Civilization|5|10
-41|Tigris & Euphrates|5|15
-42|Viticulture|3|15
-43|Power Grid|4|10
-44|Mage Knight|4|15
-45|Spirit Island|4|5
-46|The Quacks of Quedlinburg|3|10
-47|Parks|3|5
-48|Dune: Imperium|5|10
-49|Arkham Horror: The Card Game|3|5
-50|Eldritch Horror|2|15
-51|Blood Rage|4|15
+1|Chess|Abstract_Strategy|4|15
+2|Catan|Strategy|3|5
+3|Carcassonne|Tile-Placement|4|5
+4|Ticket_to_Ride|Family|1|10
+5|Pandemic|Cooperative|4|10
+6|Azul|Abstract_Strategy|4|15
+7|Codenames|Party|5|5
+8|Splendor|Family|3|10
+9|Dominion|Deck-Building|5|5
+10|7_Wonders|Card_Drafting|5|5
+11|Wingspan|Strategy|3|5
+12|Gloomhaven|Adventure|5|10
+13|Terraforming_Mars|Strategy|3|10
+14|Scythe|Strategy|5|10
+15|Root|Strategy|2|10
+16|The_Crew:_Mission_Deep_Sea|Cooperative|3|5
+17|Dixit|Party|2|10
+18|The_Resistance:_Avalon|Party|5|15
+19|Sheriff_of_Nottingham|Party|1|15
+20|Betrayal_at_House_on_the_Hill|Adventure|2|5
+21|Small_World|Strategy|5|10
+22|Everdell|Strategy|3|15
+23|Patchwork|Abstract_Strategy|5|5
+24|Twilight_Struggle|Strategy|3|10
+25|Agricola|Strategy|3|5
+26|Puerto_Rico|Strategy|4|10
+27|Brass:_Birmingham|Strategy|2|10
+28|Ark_Nova|Strategy|1|15
+29|Lost_Ruins_of_Arnak|Strategy|4|15
+30|The_Castles_of_Burgundy|Strategy|3|5
+31|Clank!|Deck-Building|4|5
+32|Great_Western_Trail|Strategy|4|15
+33|Tzolk'in:_The_Mayan_Calendar|Strategy|4|10
+34|King_of_Tokyo|Family|2|15
+35|Love_Letter|Card_Game|1|15
+36|Hanabi|Cooperative|2|5
+37|Jaipur|Card_Game|1|10
+38|Galaxy_Trucker|Strategy|3|10
+39|Roll_for_the_Galaxy|Strategy|2|10
+40|Through_the_Ages:A_New_Story_of_Civilization|Strategy|3|5
+41|Tigris&_Euphrates|Strategy|4|10
+42|Viticulture|Strategy|3|5
+43|Power_Grid|Strategy|1|5
+44|Mage_Knight|Adventure|2|15
+45|Spirit_Island|Cooperative|2|10
+46|The_Quacks_of_Quedlinburg|Family|3|15
+47|Parks|Family|4|10
+48|Dune:_Imperium|Strategy|4|15
+49|Arkham_Horror:_The_Card_Game|Cooperative|3|5
+50|Eldritch_Horror|Cooperative|1|10
+51|Blood_Rage|Strategy|4|10
