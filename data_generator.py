@@ -78,15 +78,13 @@ for i in range(number_of_customers_T2):
             'customer_code': customer_code,
             'name': name,
             'surname': surname,
-            'birth_date': birth_date,
-            'is_subscribed': is_subscribed
+            'birth_date': birth_date
         })
     customers_T2.append({
         'customer_code': customer_code,
         'name': name,
         'surname': surname,
-        'birth_date': birth_date,
-        'is_subscribed': is_subscribed
+        'birth_date': birth_date
     })
 
 def generate_price_pool(min_prize_pool, max_prize_pool):
@@ -125,7 +123,8 @@ for i in range(number_of_tournaments_T2):
             'date': date,
             'prize_pool': prize_pool,
             'entry_fee': entry_fee,
-            'responsible_worker': responsible_worker
+            'responsible_worker': responsible_worker,
+            'num_of_winners': random.randint(3, 5)
         })
     tournaments_T2.append({
         'tournament_id': tournament_id,
@@ -133,7 +132,8 @@ for i in range(number_of_tournaments_T2):
         'date': date,
         'prize_pool': prize_pool,
         'entry_fee': entry_fee,
-        'responsible_worker': responsible_worker
+        'responsible_worker': responsible_worker,
+        'num_of_winners': random.randint(3, 5)
     })
     current_tournament_id += 1
 
@@ -159,17 +159,17 @@ def split_prize_pool(num_of_splits, prize_pool):
         splits_percentages[i] = round(prize_pool * splits_percentages[i])
     return sorted(splits_percentages, reverse=True)
 
-def generate_winnings_list(prize_pool):
-    num_of_winners = random.randint(3, 5)
-    return split_prize_pool(num_of_winners, prize_pool)
+def generate_winnings_list(prize_pool, number_of_winners):
+    return split_prize_pool(number_of_winners, prize_pool)
 
 # TOURNAMENT PARTICIPANTS
 tournament_participants_T1 = []
 tournament_participants_T2 = []
 for i in range(number_of_tournaments_T2):
     number_of_participants = random.randint(5, 100)
+    number_of_winners = tournaments_T2[i]['num_of_winners']
     current_tournament_participants = generate_tournament_participants(number_of_participants)
-    winnings_list = generate_winnings_list(tournaments_T2[i]['prize_pool'])
+    winnings_list = generate_winnings_list(tournaments_T2[i]['prize_pool'], number_of_winners)
     for j in range(number_of_participants):
         if i < number_of_tournaments_T1:
             tournament_participants_T1.append({
@@ -206,10 +206,18 @@ for i in range(number_of_tournaments_T2):
         })
 
 # OWNED BOARD GAMES
-our_board_games = []
+our_board_games_T1 = []
+our_board_games_T2 = []
 starter_game_id = 1
 for game in board_games:
-    our_board_games.append({
+    our_board_games_T1.append({
+        'game_id': starter_game_id,
+        'name': game[0],
+        'category': game[1],
+        'quantity': random.randint(1, 5),
+        'rent_price': random.randint(1, 3) * 5
+    })
+    our_board_games_T2.append({
         'game_id': starter_game_id,
         'name': game[0],
         'category': game[1],
@@ -217,6 +225,15 @@ for game in board_games:
         'rent_price': random.randint(1, 3) * 5
     })
     starter_game_id += 1
+for i in range(3):
+    index = 2*(i+1)
+    our_board_games_T2.append({
+        'game_id': index+1,
+        'name': board_games[index][0],
+        'category': board_games[index][1],
+        'quantity': random.randint(6, 8),
+        'rent_price': random.randint(1, 3) * 5
+    })
 
 # RENTS
 rents_T1 = []
@@ -227,7 +244,7 @@ number_of_rents_T1 = number_of_records_T1(number_of_rents_T2)
 starter_rent_id = 1
 for i in range(number_of_rents_T2):
     random_customer = random.choice(customers_T1)
-    random_game = random.choice(our_board_games)
+    random_game = random.choice(our_board_games_T1)
     date = fakePL.date_between(start_date='-2y', end_date='today').strftime('%Y-%m-%d')
     if i < number_of_rents_T1:
         rents_T1.append({
@@ -242,68 +259,6 @@ for i in range(number_of_rents_T2):
         'game': random_game['game_id'],
         'date_of_rent': date
     })
-
-# # CEO EXCEL 1
-# possible_additional_info = [
-#     'rents disabled during tournament',
-#     'morning tournament',
-#     'evening tournament',
-#     'meet 30 minutes before start',
-#     'do not bring children',
-#     'free snacks and drinks',
-#     'no additional info'
-# ]
-# upcoming_tournaments = []
-# number_of_upcoming_tournaments = 10
-# for i in range(number_of_upcoming_tournaments):
-#     random_game = random.choice(owned_board_games)
-#     prize_pool = generate_price_pool(min_prize_pool, max_prize_pool)
-#     winnings_list = generate_winnings_list(prize_pool)
-#     date = fakePL.date_between(start_date=datetime.date.today(), end_date=datetime.date.today() + datetime.timedelta(days=60))
-#     formatted_date = date.strftime('%Y-%m-%d')
-#     while len(winnings_list) < 5:
-#         winnings_list.append(0)
-#     upcoming_tournaments.append({
-#         'tournament_id': current_tournament_id,
-#         'date': formatted_date,
-#         'name_of_game': random_game['name'],
-#         'entry_price': generate_entry_fee(min_entry_fee, max_entry_fee),
-#         'first_place_prize': winnings_list[0],
-#         'second_place_prize': winnings_list[1],
-#         'third_place_prize': winnings_list[2],
-#         'fourth_place_prize': winnings_list[3],
-#         'fifth_place_prize': winnings_list[4],
-#         'additional_info': random.choice(possible_additional_info)
-#     })
-#     current_tournament_id += 1
-
-# # Create Excel file
-# workbook = openpyxl.Workbook()
-# sheet = workbook.active
-# headers = list(upcoming_tournaments[0].keys())
-# for col_num, header in enumerate(headers, 1):
-#     sheet.cell(row=1, column=col_num, value=header)
-# for row_num, tournament in enumerate(upcoming_tournaments, 2):
-#     for col_num, header in enumerate(headers, 1):
-#         sheet.cell(row=row_num, column=col_num, value=tournament[header])
-# workbook.save('upcoming_tournaments.xlsx')
-
-
-# def push_to_file(file_name, data):
-#     with open(file_name, 'w') as file:
-#         for row in data:
-#             line = ''
-#             for key, value in row.items():
-#                 line += str(value) + '|'
-#             file.write(line[:-1] + '\n')
-
-# push_to_file('customers.bulk', customers)
-# push_to_file('tournaments.bulk', tournaments)
-# push_to_file('tournament_participants.bulk', tournament_participants)
-# push_to_file('posters.bulk', posters)
-# push_to_file('owned_board_games.bulk', owned_board_games)
-# push_to_file('rents.bulk', rents)
-# push_to_file('workers.bulk', workers)
 
 # Sample data generation functions (replace with your actual functions)
 def generate_price_pool(min_val, max_val):
@@ -451,9 +406,10 @@ push_to_file('tournaments_T1.bulk', tournaments_T1)
 push_to_file('tournaments_T2.bulk', tournaments_T2)
 push_to_file('tournament_participants_T1.bulk', tournament_participants_T1)
 push_to_file('tournament_participants_T2.bulk', tournament_participants_T2)
-push_to_file('posters_T1.bulk', posters_T1)
-push_to_file('posters_T2.bulk', posters_T2)
-push_to_file('owned_board_games.bulk', our_board_games)
+# push_to_file('posters_T1.bulk', posters_T1)
+# push_to_file('posters_T2.bulk', posters_T2)
+push_to_file('owned_board_games_T1.bulk', our_board_games_T1)
+push_to_file('owned_board_games_T2.bulk', our_board_games_T2)
 push_to_file('rents_T1.bulk', rents_T1)
 push_to_file('rents_T2.bulk', rents_T2)
 push_to_file('workers_T1.bulk', workers_T1)
