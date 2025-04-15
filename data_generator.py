@@ -294,15 +294,12 @@ min_prize_pool = 100
 max_prize_pool = 1000
 min_entry_fee = 10
 max_entry_fee = 50
-possible_additional_info = [
+games_rents_during_tournament = [
     'rents disabled during tournament',
-    'morning tournament',
-    'evening tournament',
-    'meet 30 minutes before start',
-    'do not bring children',
-    'free snacks and drinks',
-    'no additional info'
-]
+    'rents allowed during tournament',]
+meeting_time = ['morning','evening']
+bringing_children = ['do not bring kids to the tournament','children allowed']
+snack_and_drinks=['free snacks and drinks','no snacks and drinks provided']
 number_of_upcoming_tournaments = 25 
 
 if os.path.exists('upcoming_tournaments_T1.xlsx'):
@@ -339,7 +336,10 @@ if os.path.exists('upcoming_tournaments_T1.xlsx'):
             'third_place_prize': winnings_list[2],
             'fourth_place_prize': winnings_list[3],
             'fifth_place_prize': winnings_list[4],
-            'additional_info': random.choice(possible_additional_info)
+            'meeting_time': random.choice(meeting_time),
+            'bringing_children': random.choice(bringing_children),
+            'snack_and_drinks': random.choice(snack_and_drinks),
+            'games_rents_during_tournament': random.choice(games_rents_during_tournament)
         })
         current_tournament_id += 1
     all_tournaments = existing_tournaments + new_tournaments
@@ -380,7 +380,10 @@ else:
             'third_place_prize': winnings_list[2],
             'fourth_place_prize': winnings_list[3],
             'fifth_place_prize': winnings_list[4],
-            'additional_info': random.choice(possible_additional_info)
+            'meeting_time': random.choice(meeting_time),
+            'bringing_children': random.choice(bringing_children),
+            'snack_and_drinks': random.choice(snack_and_drinks),
+            'games_rents_during_tournament': random.choice(games_rents_during_tournament)
         })
         current_tournament_id += 1
     # Create Excel file
