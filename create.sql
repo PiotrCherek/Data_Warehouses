@@ -11,6 +11,7 @@ CREATE TABLE CustomerAccountInfo (
 CREATE TABLE OwnedBoardGames (
     Game_ID SMALLINT PRIMARY KEY,
     Game_Name NVARCHAR(50) COLLATE Polish_CI_AS,
+	Category NVARCHAR(50) COLLATE Polish_CI_AS,
     Number_Of_Copies TINYINT,
     Rent_Price TINYINT
 );
@@ -30,6 +31,7 @@ CREATE TABLE Tournaments (
     Price_Pool DECIMAL(6, 2),
     Entry_Price DECIMAL(5, 2),
     Responsible_Worker VARCHAR(12),
+	Number_of_winners TINYINT,
     CONSTRAINT FK_Worker FOREIGN KEY (Responsible_Worker) REFERENCES Workers(Pesel),
     CONSTRAINT FK_Game FOREIGN KEY (Game_ID) REFERENCES OwnedBoardGames(Game_ID)
 );

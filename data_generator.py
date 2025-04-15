@@ -78,13 +78,15 @@ for i in range(number_of_customers_T2):
             'customer_code': customer_code,
             'name': name,
             'surname': surname,
-            'birth_date': birth_date
+            'birth_date': birth_date,
+            'is_subscribed': is_subscribed
         })
     customers_T2.append({
         'customer_code': customer_code,
         'name': name,
         'surname': surname,
-        'birth_date': birth_date
+        'birth_date': birth_date,
+        'is_subscribed': is_subscribed
     })
 
 def generate_price_pool(min_prize_pool, max_prize_pool):
@@ -228,12 +230,13 @@ for game in board_games:
 for i in range(3):
     index = 2*(i+1)
     our_board_games_T2.append({
-        'game_id': index+1,
+        'game_id': starter_game_id,
         'name': board_games[index][0],
         'category': board_games[index][1],
         'quantity': random.randint(6, 8),
         'rent_price': random.randint(1, 3) * 5
     })
+    starter_game_id += 1
 
 # RENTS
 rents_T1 = []
