@@ -1,3 +1,5 @@
+USE Shop
+GO
 DROP TABLE Posters;
 DROP TABLE Rents;
 DROP TABLE TournamentParticipants;

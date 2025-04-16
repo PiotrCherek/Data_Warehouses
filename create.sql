@@ -1,3 +1,5 @@
+USE Shop
+GO
 -- Tabela: Customer account info
 CREATE TABLE CustomerAccountInfo (
     Customer_Code INT PRIMARY KEY,
