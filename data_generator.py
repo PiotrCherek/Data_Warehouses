@@ -4,6 +4,7 @@ import datetime
 import openpyxl
 import unidecode
 import os
+import csv
 fakePL = Faker('pl_PL')
 
 #board_game_names = open('board_game_names.txt', 'r').read().split('\n')
@@ -284,120 +285,159 @@ def generate_winnings_list(prize_pool):
 def generate_entry_fee(min_val, max_val):
     return random.randint(min_val, max_val)
 
-# Sample data
+
 fakePL = Faker('pl_PL')
-owned_board_games = [
-    {'name': 'Chess'},
-    {'name': 'Scrabble'},
-    {'name': 'Catan'},
-    {'name': 'Ticket to Ride'},
-    {'name': 'Monopoly'}
-]
-min_prize_pool = 100
-max_prize_pool = 1000
-min_entry_fee = 10
-max_entry_fee = 50
+
+# Constants and options
 games_rents_during_tournament = [
-    'rents disabled during tournament',
-    'rents allowed during tournament',]
-meeting_time = ['morning','evening']
-bringing_children = ['do not bring kids to the tournament','children allowed']
-snack_and_drinks=['free snacks and drinks','no snacks and drinks provided']
-number_of_upcoming_tournaments = 25 
+    'rents disabled during tournaments',
+    'rents allowed during tournament',
+]
+meeting_time = ['morning', 'evening']
+bringing_children = ['do not bring children', 'children allowed']
+snack_and_drinks = ['free snacks and drinks', 'no snacks and drinks provided']
 
-if os.path.exists('upcoming_tournaments_T1.xlsx'):
-    # Load existing Excel file
-    workbook = openpyxl.load_workbook('upcoming_tournaments_T1.xlsx')
-    sheet = workbook.active
-    max_row = sheet.max_row
-    current_tournament_id = sheet.cell(row=max_row, column=1).value + 1 if max_row > 1 else 1 
-    existing_tournaments = []
-    headers = [sheet.cell(row=1, column=col).value for col in range(1, sheet.max_column + 1)]
-    for row in range(2, max_row + 1):
-        tournament = {}
-        for col_num, header in enumerate(headers, 1):
-            tournament[header] = sheet.cell(row=row, column=col_num).value
-        existing_tournaments.append(tournament)
+# Use this as your actual number of tournaments # Replace with your actual number
 
-    new_tournaments = []
+# Generate random data for existing tournaments
+existing_tournaments_data = []
 
-    while (len(existing_tournaments) + len(new_tournaments) < number_of_upcoming_tournaments):
-        random_game = random.choice(owned_board_games)
-        prize_pool = generate_price_pool(min_prize_pool, max_prize_pool)
-        winnings_list = generate_winnings_list(prize_pool)
-        date = fakePL.date_between(start_date=datetime.date.today(), end_date=datetime.date.today() + datetime.timedelta(days=90))
-        formatted_date = date.strftime('%Y-%m-%d')
-        while len(winnings_list) < 5:
-            winnings_list.append(0)
-        new_tournaments.append({
-            'tournament_id': current_tournament_id,
-            'date': formatted_date,
-            'name_of_game': random_game['name'],
-            'entry_price': generate_entry_fee(min_entry_fee, max_entry_fee),
-            'first_place_prize': winnings_list[0],
-            'second_place_prize': winnings_list[1],
-            'third_place_prize': winnings_list[2],
-            'fourth_place_prize': winnings_list[3],
-            'fifth_place_prize': winnings_list[4],
-            'meeting_time': random.choice(meeting_time),
-            'bringing_children': random.choice(bringing_children),
-            'snack_and_drinks': random.choice(snack_and_drinks),
-            'games_rents_during_tournament': random.choice(games_rents_during_tournament)
-        })
-        current_tournament_id += 1
-    all_tournaments = existing_tournaments + new_tournaments
+for tournament_id in range(1, number_of_tournaments_T2 + 1):
+    tournament = {
+        'tournament_id': tournament_id,
+        'games_rents_during_tournament': random.choice(games_rents_during_tournament),
+        'meeting_time': random.choice(meeting_time),
+        'bringing_children': random.choice(bringing_children),
+        'snack_and_drinks': random.choice(snack_and_drinks)
+    }
+    existing_tournaments_data.append(tournament)
 
-    # Write to Excel file
-    if not existing_tournaments:
-        headers = list(all_tournaments[0].keys())
-        for col_num, header in enumerate(headers, 1):
-            sheet.cell(row=1, column=col_num, value=header)
+# Save to CSV
+csv_file_name = 'existing_tournaments_T2.csv'
+csv_headers = ['tournament_id', 'games_rents_during_tournament', 'meeting_time', 'bringing_children', 'snack_and_drinks']
 
-    for row_num, tournament in enumerate(all_tournaments, 2 if existing_tournaments else 1):
-        for col_num, header in enumerate(headers, 1):
-            sheet.cell(row=row_num, column=col_num, value=tournament[header])
+with open(csv_file_name, mode='w', newline='', encoding='utf-8') as file:
+    writer = csv.DictWriter(file, fieldnames=csv_headers)
+    writer.writeheader()
+    writer.writerows(existing_tournaments_data)
 
-    workbook.save('upcoming_tournaments_T2.xlsx')
-    print("Excel file 'upcoming_tournaments_T2.xlsx' created successfully.")
-else:
-    workbook = openpyxl.Workbook()
-    sheet = workbook.active
-    current_tournament_id = 1
-    upcoming_tournaments = []
+print(f"CSV file '{csv_file_name}' created successfully.")
 
-    for i in range(number_of_upcoming_tournaments):
-        random_game = random.choice(owned_board_games)
-        prize_pool = generate_price_pool(min_prize_pool, max_prize_pool)
-        winnings_list = generate_winnings_list(prize_pool)
-        date = fakePL.date_between(start_date=datetime.date.today(), end_date=datetime.date.today() + datetime.timedelta(days=60))
-        formatted_date = date.strftime('%Y-%m-%d')
-        while len(winnings_list) < 5:
-            winnings_list.append(0)
-        upcoming_tournaments.append({
-            'tournament_id': current_tournament_id,
-            'date': formatted_date,
-            'name_of_game': random_game['name'],
-            'entry_price': generate_entry_fee(min_entry_fee, max_entry_fee),
-            'first_place_prize': winnings_list[0],
-            'second_place_prize': winnings_list[1],
-            'third_place_prize': winnings_list[2],
-            'fourth_place_prize': winnings_list[3],
-            'fifth_place_prize': winnings_list[4],
-            'meeting_time': random.choice(meeting_time),
-            'bringing_children': random.choice(bringing_children),
-            'snack_and_drinks': random.choice(snack_and_drinks),
-            'games_rents_during_tournament': random.choice(games_rents_during_tournament)
-        })
-        current_tournament_id += 1
-    # Create Excel file
-    headers = list(upcoming_tournaments[0].keys())
-    for col_num, header in enumerate(headers, 1):
-        sheet.cell(row=1, column=col_num, value=header)
-    for row_num, tournament in enumerate(upcoming_tournaments, 2):
-        for col_num, header in enumerate(headers, 1):
-            sheet.cell(row=row_num, column=col_num, value=tournament[header])
-    workbook.save('upcoming_tournaments_T1.xlsx')
-    print("Excel file 'upcoming_tournaments_T1.xlsx' created successfully.")
+
+# Sample data
+# fakePL = Faker('pl_PL')
+# owned_board_games = [
+#     {'name': 'Chess'},
+#     {'name': 'Scrabble'},
+#     {'name': 'Catan'},
+#     {'name': 'Ticket to Ride'},
+#     {'name': 'Monopoly'}
+# ]
+# min_prize_pool = 100
+# max_prize_pool = 1000
+# min_entry_fee = 10
+# max_entry_fee = 50
+# games_rents_during_tournament = [
+#     'rents disabled during tournament',
+#     'rents allowed during tournament',]
+# meeting_time = ['morning','evening']
+# bringing_children = ['do not bring kids to the tournament','children allowed']
+# snack_and_drinks=['free snacks and drinks','no snacks and drinks provided']
+# number_of_upcoming_tournaments = 25 
+
+# if os.path.exists('upcoming_tournaments_T1.xlsx'):
+#     # Load existing Excel file
+#     workbook = openpyxl.load_workbook('upcoming_tournaments_T1.xlsx')
+#     sheet = workbook.active
+#     max_row = sheet.max_row
+#     current_tournament_id = sheet.cell(row=max_row, column=1).value + 1 if max_row > 1 else 1 
+#     existing_tournaments = []
+#     headers = [sheet.cell(row=1, column=col).value for col in range(1, sheet.max_column + 1)]
+#     for row in range(2, max_row + 1):
+#         tournament = {}
+#         for col_num, header in enumerate(headers, 1):
+#             tournament[header] = sheet.cell(row=row, column=col_num).value
+#         existing_tournaments.append(tournament)
+
+#     new_tournaments = []
+
+#     while (len(existing_tournaments) + len(new_tournaments) < number_of_upcoming_tournaments):
+#         random_game = random.choice(owned_board_games)
+#         prize_pool = generate_price_pool(min_prize_pool, max_prize_pool)
+#         winnings_list = generate_winnings_list(prize_pool)
+#         date = fakePL.date_between(start_date=datetime.date.today(), end_date=datetime.date.today() + datetime.timedelta(days=90))
+#         formatted_date = date.strftime('%Y-%m-%d')
+#         while len(winnings_list) < 5:
+#             winnings_list.append(0)
+#         new_tournaments.append({
+#             'tournament_id': current_tournament_id,
+#             # 'date': formatted_date,
+#             # 'name_of_game': random_game['name'],
+#             # 'entry_price': generate_entry_fee(min_entry_fee, max_entry_fee),
+#             # 'first_place_prize': winnings_list[0],
+#             # 'second_place_prize': winnings_list[1],
+#             # 'third_place_prize': winnings_list[2],
+#             # 'fourth_place_prize': winnings_list[3],
+#             # 'fifth_place_prize': winnings_list[4],
+#             'meeting_time': random.choice(meeting_time),
+#             'bringing_children': random.choice(bringing_children),
+#             'snack_and_drinks': random.choice(snack_and_drinks),
+#             'games_rents_during_tournament': random.choice(games_rents_during_tournament)
+#         })
+#         current_tournament_id += 1
+#     all_tournaments = existing_tournaments + new_tournaments
+
+#     # Write to Excel file
+#     if not existing_tournaments:
+#         headers = list(all_tournaments[0].keys())
+#         for col_num, header in enumerate(headers, 1):
+#             sheet.cell(row=1, column=col_num, value=header)
+
+#     for row_num, tournament in enumerate(all_tournaments, 2 if existing_tournaments else 1):
+#         for col_num, header in enumerate(headers, 1):
+#             sheet.cell(row=row_num, column=col_num, value=tournament[header])
+
+#     workbook.save('upcoming_tournaments_T2.xlsx')
+#     print("Excel file 'upcoming_tournaments_T2.xlsx' created successfully.")
+# else:
+#     workbook = openpyxl.Workbook()
+#     sheet = workbook.active
+#     current_tournament_id = 1
+#     upcoming_tournaments = []
+
+#     for i in range(number_of_upcoming_tournaments):
+#         random_game = random.choice(owned_board_games)
+#         prize_pool = generate_price_pool(min_prize_pool, max_prize_pool)
+#         winnings_list = generate_winnings_list(prize_pool)
+#         date = fakePL.date_between(start_date=datetime.date.today(), end_date=datetime.date.today() + datetime.timedelta(days=60))
+#         formatted_date = date.strftime('%Y-%m-%d')
+#         while len(winnings_list) < 5:
+#             winnings_list.append(0)
+#         upcoming_tournaments.append({
+#             'tournament_id': current_tournament_id,
+#             # 'date': formatted_date,
+#             # 'name_of_game': random_game['name'],
+#             # 'entry_price': generate_entry_fee(min_entry_fee, max_entry_fee),
+#             # 'first_place_prize': winnings_list[0],
+#             # 'second_place_prize': winnings_list[1],
+#             # 'third_place_prize': winnings_list[2],
+#             # 'fourth_place_prize': winnings_list[3],
+#             # 'fifth_place_prize': winnings_list[4],
+#             'meeting_time': random.choice(meeting_time),
+#             'bringing_children': random.choice(bringing_children),
+#             'snack_and_drinks': random.choice(snack_and_drinks),
+#             'games_rents_during_tournament': random.choice(games_rents_during_tournament)
+#         })
+#         current_tournament_id += 1
+#     # Create Excel file
+#     headers = list(upcoming_tournaments[0].keys())
+#     for col_num, header in enumerate(headers, 1):
+#         sheet.cell(row=1, column=col_num, value=header)
+#     for row_num, tournament in enumerate(upcoming_tournaments, 2):
+#         for col_num, header in enumerate(headers, 1):
+#             sheet.cell(row=row_num, column=col_num, value=tournament[header])
+#     workbook.save('upcoming_tournaments_T1.xlsx')
+#     print("Excel file 'upcoming_tournaments_T1.xlsx' created successfully.")
 def push_to_file(file_name, data):
     with open(file_name, 'w') as file:
         for row in data:
