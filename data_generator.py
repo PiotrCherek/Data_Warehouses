@@ -264,64 +264,63 @@ for i in range(number_of_rents_T2):
         'date_of_rent': date
     })
 
-# Sample data generation functions (replace with your actual functions)
-def generate_price_pool(min_val, max_val):
-    return random.randint(min_val, max_val)
+# def generate_price_pool(min_val, max_val):
+#     return random.randint(min_val, max_val)
 
-def generate_winnings_list(prize_pool):
-    winnings = []
-    remaining_pool = prize_pool
-    for i in range(3):  # Generate prizes for 1st, 2nd, 3rd places
-        if remaining_pool <= 0:
-            winnings.append(0)
-            continue
-        prize = random.randint(0, remaining_pool)
-        winnings.append(prize)
-        remaining_pool -= prize
-    winnings.append(remaining_pool) #4th place
-    winnings.append(0)# 5th place
-    return winnings
+# def generate_winnings_list(prize_pool):
+#     winnings = []
+#     remaining_pool = prize_pool
+#     for i in range(3):  # Generate prizes for 1st, 2nd, 3rd places
+#         if remaining_pool <= 0:
+#             winnings.append(0)
+#             continue
+#         prize = random.randint(0, remaining_pool)
+#         winnings.append(prize)
+#         remaining_pool -= prize
+#     winnings.append(remaining_pool) #4th place
+#     winnings.append(0)# 5th place
+#     return winnings
 
-def generate_entry_fee(min_val, max_val):
-    return random.randint(min_val, max_val)
+# def generate_entry_fee(min_val, max_val):
+#     return random.randint(min_val, max_val)
 
 
-fakePL = Faker('pl_PL')
+# fakePL = Faker('pl_PL')
 
-# Constants and options
-games_rents_during_tournament = [
-    'rents disabled during tournaments',
-    'rents allowed during tournament',
-]
-meeting_time = ['morning', 'evening']
-bringing_children = ['do not bring children', 'children allowed']
-snack_and_drinks = ['free snacks and drinks', 'no snacks and drinks provided']
+# # Constants and options
+# games_rents_during_tournament = [
+#     'rents disabled during tournaments',
+#     'rents allowed during tournament',
+# ]
+# meeting_time = ['morning', 'evening']
+# bringing_children = ['do not bring children', 'children allowed']
+# snack_and_drinks = ['free snacks and drinks', 'no snacks and drinks provided']
 
-# Use this as your actual number of tournaments # Replace with your actual number
+# # Use this as your actual number of tournaments # Replace with your actual number
 
-# Generate random data for existing tournaments
-existing_tournaments_data = []
+# # Generate random data for existing tournaments
+# existing_tournaments_data = []
 
-for tournament_id in range(1, number_of_tournaments_T2 + 1):
-    tournament = {
-        'tournament_id': tournament_id,
-        'games_rents_during_tournament': random.choice(games_rents_during_tournament),
-        'meeting_time': random.choice(meeting_time),
-        'bringing_children': random.choice(bringing_children),
-        'snack_and_drinks': random.choice(snack_and_drinks)
-    }
-    existing_tournaments_data.append(tournament)
+# for tournament_id in range(1, number_of_tournaments_T2 + 1):
+#     tournament = {
+#         'tournament_id': tournament_id,
+#         'games_rents_during_tournament': random.choice(games_rents_during_tournament),
+#         'meeting_time': random.choice(meeting_time),
+#         'bringing_children': random.choice(bringing_children),
+#         'snack_and_drinks': random.choice(snack_and_drinks)
+#     }
+#     existing_tournaments_data.append(tournament)
 
-# Save to CSV
-csv_file_name = 'existing_tournaments_T2.csv'
-csv_headers = ['tournament_id', 'games_rents_during_tournament', 'meeting_time', 'bringing_children', 'snack_and_drinks']
+# # Save to CSV
+# csv_file_name = 'existing_tournaments_T2.csv'
+# csv_headers = ['tournament_id', 'games_rents_during_tournament', 'meeting_time', 'bringing_children', 'snack_and_drinks']
 
-with open(csv_file_name, mode='w', newline='', encoding='utf-8') as file:
-    writer = csv.DictWriter(file, fieldnames=csv_headers)
-    writer.writeheader()
-    writer.writerows(existing_tournaments_data)
+# with open(csv_file_name, mode='w', newline='', encoding='utf-8') as file:
+#     writer = csv.DictWriter(file, fieldnames=csv_headers)
+#     writer.writeheader()
+#     writer.writerows(existing_tournaments_data)
 
-print(f"CSV file '{csv_file_name}' created successfully.")
+# print(f"CSV file '{csv_file_name}' created successfully.")
 
 
 # Sample data

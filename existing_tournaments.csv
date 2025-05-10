@@ -1,0 +1,101 @@
+tournament_id,games_rents_during_tournament,meeting_time,bringing_children,snack_and_drinks
+1,rents allowed during tournament,evening,children allowed,no snacks and drinks provided
+2,rents allowed during tournament,morning,do not bring children,free snacks and drinks
+3,rents allowed during tournament,evening,children allowed,no snacks and drinks provided
+4,rents allowed during tournament,evening,do not bring children,free snacks and drinks
+5,rents allowed during tournament,evening,children allowed,no snacks and drinks provided
+6,rents disabled during tournaments,evening,do not bring children,no snacks and drinks provided
+7,rents disabled during tournaments,morning,children allowed,no snacks and drinks provided
+8,rents disabled during tournaments,morning,children allowed,free snacks and drinks
+9,rents disabled during tournaments,evening,do not bring children,no snacks and drinks provided
+10,rents allowed during tournament,morning,children allowed,free snacks and drinks
+11,rents disabled during tournaments,evening,children allowed,no snacks and drinks provided
+12,rents disabled during tournaments,evening,children allowed,free snacks and drinks
+13,rents allowed during tournament,morning,children allowed,no snacks and drinks provided
+14,rents disabled during tournaments,evening,children allowed,free snacks and drinks
+15,rents allowed during tournament,evening,do not bring children,no snacks and drinks provided
+16,rents disabled during tournaments,morning,do not bring children,free snacks and drinks
+17,rents allowed during tournament,evening,children allowed,no snacks and drinks provided
+18,rents disabled during tournaments,evening,children allowed,free snacks and drinks
+19,rents disabled during tournaments,morning,children allowed,free snacks and drinks
+20,rents disabled during tournaments,morning,children allowed,free snacks and drinks
+21,rents allowed during tournament,evening,do not bring children,no snacks and drinks provided
+22,rents disabled during tournaments,morning,do not bring children,no snacks and drinks provided
+23,rents allowed during tournament,morning,children allowed,no snacks and drinks provided
+24,rents disabled during tournaments,morning,do not bring children,free snacks and drinks
+25,rents allowed during tournament,evening,children allowed,no snacks and drinks provided
+26,rents disabled during tournaments,evening,do not bring children,no snacks and drinks provided
+27,rents disabled during tournaments,evening,do not bring children,free snacks and drinks
+28,rents allowed during tournament,morning,do not bring children,free snacks and drinks
+29,rents disabled during tournaments,morning,children allowed,free snacks and drinks
+30,rents allowed during tournament,evening,do not bring children,no snacks and drinks provided
+31,rents disabled during tournaments,evening,do not bring children,no snacks and drinks provided
+32,rents disabled during tournaments,evening,do not bring children,no snacks and drinks provided
+33,rents disabled during tournaments,evening,children allowed,no snacks and drinks provided
+34,rents allowed during tournament,morning,children allowed,free snacks and drinks
+35,rents allowed during tournament,morning,children allowed,no snacks and drinks provided
+36,rents allowed during tournament,evening,children allowed,free snacks and drinks
+37,rents allowed during tournament,evening,do not bring children,no snacks and drinks provided
+38,rents disabled during tournaments,evening,do not bring children,free snacks and drinks
+39,rents disabled during tournaments,evening,children allowed,no snacks and drinks provided
+40,rents allowed during tournament,evening,do not bring children,no snacks and drinks provided
+41,rents allowed during tournament,morning,children allowed,no snacks and drinks provided
+42,rents allowed during tournament,evening,children allowed,free snacks and drinks
+43,rents disabled during tournaments,morning,children allowed,free snacks and drinks
+44,rents disabled during tournaments,morning,children allowed,free snacks and drinks
+45,rents disabled during tournaments,evening,do not bring children,free snacks and drinks
+46,rents allowed during tournament,evening,children allowed,no snacks and drinks provided
+47,rents allowed during tournament,evening,children allowed,no snacks and drinks provided
+48,rents disabled during tournaments,morning,children allowed,no snacks and drinks provided
+49,rents allowed during tournament,morning,children allowed,no snacks and drinks provided
+50,rents disabled during tournaments,evening,children allowed,no snacks and drinks provided
+51,rents disabled during tournaments,morning,do not bring children,free snacks and drinks
+52,rents disabled during tournaments,morning,do not bring children,no snacks and drinks provided
+53,rents disabled during tournaments,morning,do not bring children,no snacks and drinks provided
+54,rents disabled during tournaments,morning,do not bring children,no snacks and drinks provided
+55,rents allowed during tournament,morning,do not bring children,free snacks and drinks
+56,rents disabled during tournaments,morning,do not bring children,no snacks and drinks provided
+57,rents disabled during tournaments,evening,do not bring children,no snacks and drinks provided
+58,rents allowed during tournament,evening,do not bring children,no snacks and drinks provided
+59,rents allowed during tournament,morning,do not bring children,free snacks and drinks
+60,rents disabled during tournaments,morning,do not bring children,free snacks and drinks
+61,rents disabled during tournaments,morning,children allowed,no snacks and drinks provided
+62,rents disabled during tournaments,morning,children allowed,no snacks and drinks provided
+63,rents disabled during tournaments,evening,do not bring children,free snacks and drinks
+64,rents allowed during tournament,evening,do not bring children,no snacks and drinks provided
+65,rents disabled during tournaments,morning,do not bring children,free snacks and drinks
+66,rents allowed during tournament,morning,do not bring children,no snacks and drinks provided
+67,rents allowed during tournament,morning,do not bring children,free snacks and drinks
+68,rents disabled during tournaments,evening,do not bring children,free snacks and drinks
+69,rents disabled during tournaments,morning,do not bring children,no snacks and drinks provided
+70,rents allowed during tournament,evening,do not bring children,no snacks and drinks provided
+71,rents allowed during tournament,evening,children allowed,no snacks and drinks provided
+72,rents disabled during tournaments,morning,do not bring children,no snacks and drinks provided
+73,rents allowed during tournament,morning,do not bring children,no snacks and drinks provided
+74,rents allowed during tournament,morning,do not bring children,no snacks and drinks provided
+75,rents disabled during tournaments,evening,do not bring children,free snacks and drinks
+76,rents disabled during tournaments,evening,do not bring children,no snacks and drinks provided
+77,rents allowed during tournament,evening,children allowed,no snacks and drinks provided
+78,rents allowed during tournament,morning,children allowed,free snacks and drinks
+79,rents allowed during tournament,morning,do not bring children,no snacks and drinks provided
+80,rents disabled during tournaments,evening,do not bring children,free snacks and drinks
+81,rents allowed during tournament,morning,children allowed,no snacks and drinks provided
+82,rents allowed during tournament,morning,do not bring children,no snacks and drinks provided
+83,rents allowed during tournament,morning,do not bring children,free snacks and drinks
+84,rents allowed during tournament,morning,do not bring children,no snacks and drinks provided
+85,rents disabled during tournaments,morning,children allowed,no snacks and drinks provided
+86,rents allowed during tournament,evening,do not bring children,no snacks and drinks provided
+87,rents allowed during tournament,evening,do not bring children,no snacks and drinks provided
+88,rents disabled during tournaments,evening,children allowed,free snacks and drinks
+89,rents allowed during tournament,evening,children allowed,no snacks and drinks provided
+90,rents allowed during tournament,morning,children allowed,no snacks and drinks provided
+91,rents disabled during tournaments,morning,children allowed,free snacks and drinks
+92,rents allowed during tournament,evening,do not bring children,free snacks and drinks
+93,rents allowed during tournament,morning,children allowed,no snacks and drinks provided
+94,rents disabled during tournaments,evening,children allowed,no snacks and drinks provided
+95,rents disabled during tournaments,evening,do not bring children,free snacks and drinks
+96,rents allowed during tournament,evening,children allowed,no snacks and drinks provided
+97,rents disabled during tournaments,evening,children allowed,no snacks and drinks provided
+98,rents allowed during tournament,evening,children allowed,no snacks and drinks provided
+99,rents disabled during tournaments,evening,do not bring children,free snacks and drinks
+100,rents allowed during tournament,evening,do not bring children,free snacks and drinks
