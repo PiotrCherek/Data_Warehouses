@@ -27,7 +27,7 @@ CREATE TABLE Workers (
 
 -- Tabela: Tournaments
 CREATE TABLE Tournaments (
-    Tournament_ID SMALLINT PRIMARY KEY,
+    Tournament_ID INT PRIMARY KEY,
     Game_ID SMALLINT,
     Tournament_Date DATE,
     Price_Pool DECIMAL(6, 2),
@@ -41,7 +41,7 @@ CREATE TABLE Tournaments (
 -- Tabela: Tournament participants
 CREATE TABLE TournamentParticipants (
     Customer_ID INT,
-    Tournament_ID SMALLINT,
+    Tournament_ID INT,
     Placement INT,
     Price_Won DECIMAL(6, 2),
     PRIMARY KEY (Customer_ID, Tournament_ID),
@@ -61,7 +61,7 @@ CREATE TABLE Rents (
 
 -- Tabela: Posters
 CREATE TABLE Posters (
-    Tournament_ID SMALLINT,
+    Tournament_ID INT,
     City_District NVARCHAR(50) COLLATE Polish_CI_AS,
     Number_Of_Posters TINYINT,
     PRIMARY KEY (Tournament_ID, City_District),

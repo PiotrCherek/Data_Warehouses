@@ -103,7 +103,7 @@ def generate_entry_fee(min_entry_fee, max_entry_fee):
     return random_number
 
 # TOURNAMENTS
-number_of_tournaments_T2 = 100
+number_of_tournaments_T2 = 400000
 number_of_tournaments_T1 = number_of_records_T1(number_of_tournaments_T2)
 tournaments_T1 = []
 tournaments_T2 = []
@@ -113,6 +113,7 @@ min_prize_pool = 100
 min_entry_fee = 10
 max_entry_fee = 100
 for i in range(number_of_tournaments_T2):
+    print(current_tournament_id)
     tournament_id = current_tournament_id
     game_id = random.randint(1, len(board_games))
     date = fakePL.date_between(start_date='-2y', end_date='today').strftime('%Y-%m-%d')
@@ -169,7 +170,8 @@ def generate_winnings_list(prize_pool, number_of_winners):
 tournament_participants_T1 = []
 tournament_participants_T2 = []
 for i in range(number_of_tournaments_T2):
-    number_of_participants = random.randint(5, 100)
+    print("participants", i)
+    number_of_participants = random.randint(5, 10)
     number_of_winners = tournaments_T2[i]['num_of_winners']
     current_tournament_participants = generate_tournament_participants(number_of_participants)
     winnings_list = generate_winnings_list(tournaments_T2[i]['prize_pool'], number_of_winners)

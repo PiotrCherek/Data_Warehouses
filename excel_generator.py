@@ -36,7 +36,7 @@ snack_and_drinks = ['free snacks and drinks', 'no snacks and drinks provided']
 csv_file_name = 'existing_tournaments.csv'
 csv_headers = ['tournament_id', 'games_rents_during_tournament', 'meeting_time', 'bringing_children', 'snack_and_drinks']
 
-number_of_tournaments_T1 = 70
+number_of_tournaments_T1 = 400000
 number_to_generate_each_run = 30  # Number to add in subsequent runs
 
 # Check if CSV exists and how many records are already present
